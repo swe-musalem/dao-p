@@ -1,0 +1,20 @@
+{% extends 'register.html' %}
+{% load widget_tweaks %}
+
+{% block content %}
+<form action="" method="post" class="gap-3 flex flex-col justify-between">
+    {% csrf_token %}
+    <input type="text"  name="username" class="w-full" id="username" placeholder="اسم المستخدم" >
+
+    {% render_field form.password placeholder="كلمة المرور" type="text" class="w-full" %}
+
+    <div class="text-red-500">
+        {{form.errors}}
+    </div>
+    
+    
+    <button type="submit" class="bg-blue-400 p-2 w-1/2 text-white rounded-md">تسجيل الدخول</button>
+</form>
+
+{% endblock %}
+

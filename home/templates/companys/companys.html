@@ -1,0 +1,60 @@
+{% extends 'home/home.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+</head>
+<body>
+    
+
+    {% block content %}
+    <!-- component -->
+    <div class="h-1/2 flex flex-col w-full items-center justify-center ">
+                        {% for company in companys %}
+
+                    <!-- Card 1 -->
+                                    <a href="#" class=" w-full  sm:w-1/4 md:w-3/4 border-2 border-b-4 border-gray-400 bg-white  rounded-xl  my-4">
+                                
+                                    <!-- Badge -->
+                                    
+                                
+                                    <div class="grid grid-cols-6 p-5 gap-y-2">
+                                
+                                        <!-- Profile Picture -->
+                                        <div>
+                                        <img src="https://picsum.photos/seed/2/200/200" class="max-w-16 max-h-16 rounded-full" />
+                                        </div>
+                                
+                                        <!-- Description -->
+                                        <div class="col-span-5 md:col-span-4 ml-4">
+                                
+                                        <p class="text-sky-500 font-bold text-base text-bold"> {{company.title}} </p>
+                                
+                                        <p class="text-gray-600 font-bold"> {{company.companyName}}</p>
+                                
+                                        <p class="text-gray-400"> {{company.spec}} </p>
+                                
+                                        <p class="text-gray-400"> {{company.phonenumber}} </p>
+
+                                        
+                                
+                                        </div>
+                                
+                                        <!-- Price -->
+                                        <div class="flex col-start-2 ml-4 md:col-start-auto md:ml-0 md:justify-end">
+                                        <p class="rounded-lg text-sky-500 font-bold bg-sky-100  py-1 px-3 text-sm w-fit h-fit whitespace-nowrap" > {{company.gpa}} </p>
+                                        </div>
+                                
+                                    </div>
+                                
+                                    </a>
+                
+                                    {% endfor %}
+                    </div>
+                    {% endblock %}
+</body>
+</html>

@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'myapp/styles.css' %}">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>addproduct</title>
+</head>
+
+
+        
+
+<body class="bg-slate-500">
+    <div class="w-1/4 m-auto mt-48 ">
+        <div>
+            <div class="  rounded-xl flex gap-x-5 justify-center ">
+                                    <!-- for images -->
+                {% block content %}
+                <form method="POST" enctype="multipart/form-data">
+                    <div class="flex flex-col bg-gray-300  gap-5  rounded-2xl h-96 p-8">
+                        <div class=" text-center text-2xl font-medium text-white">add ad</div>
+                        {% csrf_token %}
+                        <input type="text" placeholder="companyname" name="companyname" id="companyname" class="rounded p-2">
+                        <input type="text" placeholder="majors" name="spec" id="spec" class="rounded p-2 ">
+                        <input type="text" placeholder="seats" name="seats" id="seats" class="rounded p-2">
+                        <input type="text" placeholder="gpa" name="gpa" id="gpa" class="rounded p-2">
+                        <input type="submit" value="Add Ad" name="Add ad" class="  p-1 bg-blue-500 rounded text-white font-medium" >
+                    </div>
+                </form>
+                {% endblock content %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

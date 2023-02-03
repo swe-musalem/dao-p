@@ -1,0 +1,57 @@
+
+{% load widget_tweaks %}
+<!DOCTYPE html>
+<html lang="en" dir="rtl" >
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- global head -->    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="">
+    <div class=" h-screen  ">
+        <div class="h-full flex justify-center items-center ">
+            <div class=" w-full  px-5 sm:w-1/2 md:w-5/12  ">
+                <div class="text-xl ">
+                    حياك الله, نورت دووب ! - تسجيل طالب                </div>
+                {% block content %}
+                <form  method="post" enctype="multipart/form-data" class="gap-3 flex flex-col justify-between">
+                    {% csrf_token %}
+                    <div class="relative">
+                        <input class="w-full" type="text" name="username" id="username" placeholder="اسم المستخدم"   >
+                        <div id="check-username"></div>
+                    </div>
+
+                    <div>
+                        <input class="w-full" type="email" name="email" id="email" placeholder="البريد الالكتروني"   >
+                        <div id="check-email"></div>
+                    </div>
+
+                    <div>
+                        <input type="number" class="w-full" placeholder="رقم الجوال 05*******" name="phonenumber" id="" ">
+                        <div id="check-number" ></div>
+                    </div>
+
+                    <div>
+                        <span></span>
+                        {% render_field form.password1 placeholder="كلمة المرور" type="text" %}
+                    </div>
+                    <div>
+                        <span></span>
+                        {% render_field form.password2 placeholder="تأكيد كلمة المرور" type="text" %}
+                    </div>
+                   
+                    <button class="bg-[#1ca3ec] p-2 rounded-md text-white w-full" type="submit" >أنشاء حساب</button>
+                </form>
+                <div >  عندك حساب ؟ سجل  <a class="text-[#1ca3ec]" href="#">هنا</a>  </div>
+                {{form.errors}}
+                {% endblock %}
+            </div>
+        </div>
+        
+
+
+    
+    </div>
+</body>
+</html>
