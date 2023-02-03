@@ -1,11 +1,11 @@
 from django.shortcuts import render
 from .forms import NewUserForm
 from django.http import HttpResponse
-
+from home import views 
 from .models import Profile
 # Create your views here.
-
-
+from django.shortcuts import redirect
+from django.urls import reverse
 
 
 def register(request):
@@ -25,7 +25,7 @@ def register(request):
                 user = form.save()
                 profile = Profile(user=user,phonenumber=number,is_company=False,email=email)
                 profile.save()
-                return render(request,'student/student.html')
+                return redirect(reverse('home:student'))
 
     return render(request,'register.html',{"form":form})
 
@@ -47,5 +47,5 @@ def registerCompany(request):
                 user = form.save()
                 profile = Profile(user=user,phonenumber=number,is_company=True)
                 profile.save()
-                return render(request,'student/student.html')
+                return redirect(reverse('home:student'))
     return render(request,'registerCo.html',{"form":form})
