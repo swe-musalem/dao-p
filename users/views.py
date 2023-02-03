@@ -25,7 +25,7 @@ def register(request):
                 user = form.save()
                 profile = Profile(user=user,phonenumber=number,is_company=False,email=email)
                 profile.save()
-                return render(request,'home/home.html')
+                return render(request,'student/student.html')
 
     return render(request,'register.html',{"form":form})
 
@@ -47,5 +47,5 @@ def registerCompany(request):
                 user = form.save()
                 profile = Profile(user=user,phonenumber=number,is_company=True)
                 profile.save()
-                return render(request,'home/home.html')
+                return render(request,'student/student.html')
     return render(request,'registerCo.html',{"form":form})
