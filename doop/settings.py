@@ -135,3 +135,5 @@ LOGIN_URL = 'users:login'
 
 MEDIA_ROOT = BASE_DIR/'media'
 MEDIA_URL = '/media/'
+
+CSRF_TRUSTED_ORIGINS = ['https://dao-p-production.up.railway.app']
